@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ARM32DebugPublish",
+      "command": "sh",
+      "type": "shell",
+      "problemMatcher": "$msCompile",
+      "args": [
+        "-c",
+        "\"dotnet publish -r linux-arm --self-contained -c Debug -o ./bin/linux-arm/publish ./${workspaceFolderBasename}.sln && rsync -rvuz ./bin/linux-arm/publish/ pi@192.168.178.78:~/${workspaceFolderBasename}\""
+      ]
+    },
+    {
+      "label": "ARM32ReleasePublish",
+      "command": "sh",
+      "type": "shell",
+      "problemMatcher": "$msCompile",
+      "args": [
+        "-c",
+        "\"dotnet publish -r linux-arm --self-contained -c Release -o ./bin/linux-arm/publish ./${workspaceFolderBasename}.sln && rsync -rvuz ./bin/linux-arm/publish/ pi@192.168.178.78:~/${workspaceFolderBasename}\""
+      ]
+    },
+    {
+      "label": "ARM64DebugPublish",
+      "command": "sh",
+      "type": "shell",
+      "problemMatcher": "$msCompile",
+      "args": [
+        "-c",
+        "\"dotnet publish -r linux-arm64 --self-contained -c Debug -o ./bin/linux-arm/publish ./${workspaceFolderBasename}.sln && rsync -rvuz ./bin/linux-arm/publish/ pi@192.168.178.78:~/${workspaceFolderBasename}\""
+      ]
+    },
+    {
+      "label": "ARM64ReleasePublish",
+      "command": "sh",
+      "type": "shell",
+      "problemMatcher": "$msCompile",
+      "args": [
+        "-c",
+        "\"dotnet publish -r linux-arm64 --self-contained -c Release -o ./bin/linux-arm/publish ./${workspaceFolderBasename}.csproj && rsync -rvuz ./bin/linux-arm/publish/ pi@192.168.178.78:~/${workspaceFolderBasename}\""
+      ]
+    }
+  ]
+}
